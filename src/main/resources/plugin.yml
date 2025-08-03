@@ -1,0 +1,67 @@
+name: HubPVP
+version: ${version}
+main: exsistory.dev.hubpvp.HubPVP
+authors: [Exsistory]
+description: ${description}
+api-version: 1.13
+softdepend: [PlaceholderAPI]
+load: STARTUP
+prefix: HubPVP
+
+commands:
+  hubpvp:
+    description: Main HubPVP command
+    usage: /<command> [enable|disable|toggle|stats|top|reset|reload|list|combat|help]
+    aliases: [hpvp]
+    permission: hubpvp.use
+  pvp:
+    description: Quick PVP toggle command
+    usage: /<command> [enable|disable|toggle|stats|top|help]
+    permission: hubpvp.use
+
+permissions:
+  hubpvp.*:
+    description: All HubPVP permissions
+    children:
+      hubpvp.use: true
+      hubpvp.admin: true
+      hubpvp.fly: true
+      hubpvp.stats.others: true
+    default: op
+
+  hubpvp.use:
+    description: Basic permission to use PVP commands
+    default: true
+
+  hubpvp.admin:
+    description: Access to all admin commands
+    children:
+      hubpvp.admin.reset: true
+      hubpvp.admin.reload: true
+      hubpvp.admin.list: true
+      hubpvp.admin.combat: true
+    default: op
+
+  hubpvp.admin.reset:
+    description: Permission to reset player statistics
+    default: op
+
+  hubpvp.admin.reload:
+    description: Permission to reload the plugin configuration
+    default: op
+
+  hubpvp.admin.list:
+    description: Permission to list PVP enabled players
+    default: op
+
+  hubpvp.admin.combat:
+    description: Permission to check other players' combat status
+    default: op
+
+  hubpvp.fly:
+    description: Permission to use flight (re-enabled after combat)
+    default: op
+
+  hubpvp.stats.others:
+    description: Permission to view other players' statistics
+    default: op

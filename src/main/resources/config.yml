@@ -1,0 +1,180 @@
+# HubPVP Configuration
+
+# Equipment given to players in PVP mode
+equipment:
+  helmet:
+    material: DIAMOND_HELMET
+    name: "&6PVP Helmet"
+    lore:
+      - "&7Protected armor for combat"
+      - "&8Equipment is locked while active"
+    enchantments:
+      PROTECTION_ENVIRONMENTAL: 4
+      UNBREAKING: 3
+      RESPIRATION: 2
+
+  chestplate:
+    material: DIAMOND_CHESTPLATE
+    name: "&6PVP Chestplate"
+    lore:
+      - "&7Protected armor for combat"
+      - "&8Equipment is locked while active"
+    enchantments:
+      PROTECTION_ENVIRONMENTAL: 4
+      UNBREAKING: 3
+
+  leggings:
+    material: DIAMOND_LEGGINGS
+    name: "&6PVP Leggings"
+    lore:
+      - "&7Protected armor for combat"
+      - "&8Equipment is locked while active"
+    enchantments:
+      PROTECTION_ENVIRONMENTAL: 4
+      UNBREAKING: 3
+
+  boots:
+    material: DIAMOND_BOOTS
+    name: "&6PVP Boots"
+    lore:
+      - "&7Protected armor for combat"
+      - "&8Equipment is locked while active"
+    enchantments:
+      PROTECTION_ENVIRONMENTAL: 4
+      UNBREAKING: 3
+      FEATHER_FALLING: 3
+
+  sword:
+    material: DIAMOND_SWORD
+    name: "&cPVP Sword"
+    inactive-lore:
+      - "&7Click to activate PVP mode"
+      - "&8Hold to auto-activate"
+    active-lore:
+      - "&aPVP mode is active"
+      - "&8Equipment is locked while active"
+    slot: 0
+    enchantments:
+      DAMAGE_ALL: 4
+      UNBREAKING: 3
+      FIRE_ASPECT: 1
+
+# How players activate and deactivate PVP
+activation:
+  mode: "RIGHT_CLICK"  # RIGHT_CLICK or HOLD
+  give-sword-on-join: true
+  show-sword-message: false
+  show-death-reset-message: false
+
+# Countdown timers for enabling and disabling PVP
+countdown:
+  enable:
+    enabled: true
+    time: 3
+    title: "&cActivating PVP"
+    subtitle: "&7{time} seconds"
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    cancel-on-move: false
+    cancel-on-damage: true
+
+  disable:
+    enabled: true
+    time: 5
+    title: "&aDeactivating PVP"
+    subtitle: "&7{time} seconds"
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    cancel-on-move: false
+    cancel-on-damage: true
+
+# Combat system and anti-combat logging
+combat:
+  time: 15
+  block-pvp-when-disabled: true
+  tag-enabled: true
+  tag-duration: 30
+  prevent-pvp-disable: true
+
+# Visual effects for PVP players
+effects:
+  glowing: true
+
+# Live scoreboard display
+scoreboard:
+  title: "&c&lPVP"
+  enabled: true
+  update-interval: 20
+  lines:
+    - ""
+    - "&fStatus: %hubpvp_status_color%%hubpvp_status%"
+    - ""
+    - "&7Kills: &f%hubpvp_kills%"
+    - "&7Streak: &f%hubpvp_killstreak%"
+    - ""
+    - "&fLeaderboard:"
+    - "&e1. %hubpvp_top_1_name% &7(&f%hubpvp_top_1_kills%&7)"
+    - "&72. %hubpvp_top_2_name% &7(&f%hubpvp_top_2_kills%&7)"
+    - "&63. %hubpvp_top_3_name% &7(&f%hubpvp_top_3_kills%&7)"
+    - ""
+
+# Player messages
+messages:
+  pvp-enabled: "&aPVP enabled"
+  pvp-disabled: "&cPVP disabled"
+  pvp-already-enabled: "&cPVP is already enabled"
+  pvp-not-enabled: "&cPVP is not enabled"
+  pvp-disabled-world: "&cPVP is disabled in this world"
+  equipment-locked: "&cCannot move PVP equipment"
+  combat-entered: "&cYou are now in combat"
+  combat-exited: "&aYou are no longer in combat"
+  command-blocked: "&cCannot use commands in combat ({time}s remaining)"
+  flight-blocked: "&cCannot fly while in PVP mode"
+  kill: "&6{killer} &7killed &c{victim} &7(Streak: &e{killstreak}&7)"
+  countdown-enable-started: "&7Activating PVP in &c{time} &7seconds"
+  countdown-disable-started: "&7Deactivating PVP in &a{time} &7seconds"
+  countdown-cancelled: "&cCountdown cancelled"
+  pvp-blocked: "&cBoth players must have PVP enabled"
+  sword-received: "&7You received a PVP sword"
+  combat-tagged: "&cCannot disable PVP while combat tagged ({time}s remaining)"
+  death-reset: "&7PVP status reset - activate when ready"
+
+# Worlds where PVP is completely disabled
+disabled-worlds:
+  - "spawn"
+  - "lobby"
+
+# Commands executed automatically
+commands:
+  activation:
+    - "broadcast &6{player} &7enabled PVP"
+
+  deactivation:
+    - "broadcast &6{player} &7disabled PVP"
+
+  kill:
+    - "give {killer} golden_apple 1"
+
+  # Commands blocked during combat
+  blocked:
+    - "tp"
+    - "home"
+    - "spawn"
+    - "warp"
+    - "fly"
+
+  # Rewards for kill streaks
+  killstreak:
+    5:
+      - "broadcast &6{player} &7is on a 5 kill streak"
+      - "give {player} golden_apple 2"
+
+    10:
+      - "broadcast &6{player} &7reached 10 kills"
+      - "give {player} enchanted_golden_apple 1"
+
+    15:
+      - "broadcast &6{player} &7is dominating with 15 kills"
+      - "give {player} diamond 3"
+
+    20:
+      - "broadcast &6{player} &7achieved 20 kills"
+      - "give {player} emerald 5"

@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'maven-publish'
+}
+
+group = 'dev.exsistory'
+version = '3.1.1'
+description = 'A comprehensive PVP plugin with dual countdown systems, combat tagging, and kill streak management'
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        name = 'placeholderapi'
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.11.5'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.release = 8
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    archiveBaseName.set('HubPVP')
+    archiveVersion.set(project.version.toString())
+
+    exclude 'META-INF/**'
+    exclude '**/*.md'
+    exclude '**/*.txt'
+
+    destinationDirectory = file("$buildDir/libs")
+}
+
+build {
+    dependsOn shadowJar
+}
+
+jar {
+    enabled = false
+}
+
+processResources {
+    def props = [
+            version: project.version,
+            description: project.description,
+            group: project.group
+    ]
+
+    inputs.properties props
+    filteringCharset 'UTF-8'
+
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
