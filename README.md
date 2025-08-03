@@ -17,7 +17,7 @@ A fun hub pvp game
 - [Commands](#commands)
 - [Permissions](#permissions)
 - [Placeholders](#placeholders)
-- [API](#developer-api)
+- [API](#api)
 - [Events](#events)
 
 ## Features
