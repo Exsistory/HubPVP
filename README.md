@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/Exsistory/HubPVP/workflows/Build%20and%20Release/badge.svg)](https://github.com/Exsistory/HubPVP/actions)
 [![Release](https://img.shields.io/github/v/release/Exsistory/HubPVP)](https://github.com/Exsistory/HubPVP/releases)
 [![Downloads](https://img.shields.io/github/downloads/Exsistory/HubPVP/total)](https://github.com/Exsistory/HubPVP/releases)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-GNU.svg)](LICENSE)
 [![Java](https://img.shields.io/badge/Java-8%2B-orange.svg)](https://openjdk.java.net/)
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.8--1.20%2B-green.svg)](https://www.minecraft.net/)
 
