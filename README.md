@@ -204,7 +204,7 @@ Add HubPVP as a dependency to your project:
     <dependency>
         <groupId>com.github.Exsistory</groupId>
         <artifactId>HubPVP</artifactId>
-        <version>v3.1.0</version>
+        <version>v3.1.3</version>
         <scope>provided</scope>
     </dependency>
 </dependencies>
@@ -217,7 +217,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'com.github.Exsistory:HubPVP:v3.1.0'
+    compileOnly 'com.github.Exsistory:HubPVP:v3.1.3'
 }
 ```
 
