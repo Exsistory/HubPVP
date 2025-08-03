@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'dev.exsistory'
-version = '3.1.1'
+version = '3.1.2'
 description = 'A comprehensive PVP plugin with dual countdown systems, combat tagging, and kill streak management'
 
 java {
