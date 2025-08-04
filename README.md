@@ -31,7 +31,7 @@ A fun hub pvp game
 
 ### Extra Features
 - **API** - Because why not
-- **PlaceholderAPI Support** - 50+ placeholders for literally everything
+- **PlaceholderAPI Support** - 24+ placeholders for literally everything
 - **Event System** - Custom events for PVP state changes and combat
 - **Live Scoreboard** - PVP statistics display
 
